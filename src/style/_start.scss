@@ -8,12 +8,7 @@
 .start-page {
     z-index: -2;
     min-height: 100vh;
-    background: radial-gradient(circle, rgba(186, 170, 160, 0.3563695741968662) 35%, rgba(156, 158, 158, 1) 100%), $bgStart no-repeat center / cover;
-}
-
-.start-page_dark {
-    min-height: 100vh;
-    background: radial-gradient(circle, rgba(92, 117, 90, 0.6476861008075105) 35%, rgba(92, 117, 90, 1) 100%), $bgStart no-repeat center / cover;
+    background: $bgStart;
 }
 
 .form_wrapper {
@@ -24,20 +19,16 @@
 }
 
 .btn {
-    padding: 0 25px;
-    margin: 5px 0 15px 0;
-    border: 1px solid #fff;
-    border-radius: 50px;
-    height: 56px;
-    min-width: 150px;
-    line-height: 46px;
-    font-size: 1.8rem;
+    padding: rem(10) rem(25) rem(8);
+    border: rem(1) solid $white;
+    border-radius: rem(50);
+    min-width: rem(80);
+    @include adaptiveValue(font-size, 22, 16);
     text-transform: uppercase;
-    font-weight: 400;
-    color: #7F615A;
+    color: $mainColor;
     text-decoration: none;
-    background-color: #fff;
-    box-shadow: 0 4px 6px #4184903a, 0 1px 3px #00000008;
+    background-color: $bgBody;
+    box-shadow: 0 rem(4) rem(6) $green, 0 rem(1) rem(3) #00000008;
     cursor: pointer;
     user-select: none;
     appearance: none;
@@ -48,29 +39,30 @@
 
 .btn:hover {
     transition: all 0.2s;
-    box-shadow: 0 7px 14px #5c755a8f, 0 3px 6px #00000014;
+    box-shadow: 0 rem(7) rem(14) $green, 0 rem(3) rem(6) #00000014;
 }
 
 .btn:active {
-    background-color: #5c755a8f;
-    border: none;
-    color: white;
+    background-color: $green;
+    border: rem(1) solid $green;
+    color: $bgBody;
 }
 
 .input-group {
     position: relative;
-    margin-bottom: 25px;
+    @include adaptiveValue(margin-bottom, 34, 24);
 }
 
 .login-input,
 .password-input {
-    padding: 10px;
+    padding: rem(10);
     border: none;
-    border-radius: 4px;
-    font: inherit;
-    color: #7F615A;
+    border-radius: rem(4);
+    @include adaptiveValue(font-size, 22, 16);
+    color: $mainColor;
     background-color: transparent;
-    outline: 2px solid #fff;
+    outline: rem(2) solid $mainColor;
+    cursor: pointer;
 }
 
 .login-label,
@@ -78,8 +70,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    color: #7F615A;
-    transform: translate(10px, 10px);
+    @include adaptiveValue(font-size, 22, 16);
+    color: $mainColor;
+    transform: translate(rem(10), rem(10));
     transition: transform .25s;
 }
 
@@ -87,19 +80,19 @@
 .login-input:valid+.login-label,
 .password-input:focus+.password-label,
 .password-input:valid+.password-label {
-    transform: translate(10px, -28px) scale(.8);
-    color: #7F615A;
-    padding-inline: 5px;
+    transform: translate(rem(10), rem(-28)) scale(.8);
+    padding-inline: rem(5);
     background-color: transparent;
 }
 
 .login-input:is(:focus, :valid),
 .password-input:is(:focus, :valid) {
-    outline-color: #7F615A;
+    outline-color: $mainColor;
+    box-shadow: 0 rem(7) rem(14) $green, 0 rem(3) rem(6) #00000014;
 }
 
 .setting {
-    margin-top: 15px;
+    @include adaptiveValue(margin-top, 34, 24);
 }
 
 //переключатель
@@ -108,11 +101,9 @@
     position: relative;
     display: flex;
     justify-content: space-around;
-    width: 380px;
-    padding: 0 10px;
+    padding: 0 rem(10);
+    @include adaptiveValue(font-size, 22, 16);
     text-transform: uppercase;
-    font-size: 22px;
-    font-weight: 300;
 
     &:before {
         content: '  ';
@@ -120,32 +111,31 @@
         left: 0;
         z-index: 0;
         width: 100%;
-        height: 3rem;
-        background: #5c755a8f;
-        border-radius: 30px;
+        height: 100%;
+        background: $green;
+        border-radius: rem(30);
     }
 
     &__label {
         flex: 1 1 auto;
         z-index: 1;
-        width: 110px;
-        padding: 10px;
+        @include adaptiveValue(padding, 10, 8);
         text-align: center;
         cursor: pointer;
         transition: color 200ms ease-out;
-        color: #58443f;
+        color: $brown;
 
         &:hover {
-            color: white;
+            color: $white;
         }
     }
 
     &__indicator {
         z-index: 2;
-        width: 35px;
-        height: 35px;
+        @include adaptiveValue(width, 35, 20);
+        @include adaptiveValue(height, 35, 20);
         position: absolute;
-        top: 5px;
+        top: rem(5);
         left: 0;
         border-radius: 50%;
         transition: transform 600ms cubic-bezier(.02, .94, .09, .97);
@@ -153,18 +143,18 @@
     }
 
     input#one:checked~.level__indicator {
-        background: rgba(107, 192, 107, 0.767);
-        transform: translate3d(50px, 0, 0);
+        background: $light-green;
+        transform: translate3d(rem(42), 0, 0);
     }
 
     input#two:checked~.level__indicator {
-        background: rgba(72, 209, 205, 0.767);
-        transform: translate3d(170px, 0, 0);
+        background: $light-blue;
+        transform: translate3d(rem(178), 0, 0);
     }
 
     input#three:checked~.level__indicator {
-        background: #d6856fd3;
-        transform: translate3d(290px, 0, 0);
+        background: $orange;
+        transform: translate3d(rem(328), 0, 0);
     }
 
     input[type="radio"] {
