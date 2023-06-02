@@ -2,8 +2,8 @@ $back: black;
 $text: white;
 
 // Основной шрифт по умолчанию
-$fontFamily: 'Montserrat',
-sans-serif;
+$fontFamily: 'Rubik Spray Paint',
+cursive;
 $fontSize: rem(22); // где 18(px) - размер шрифта по умолчанию из макета
 $fontWeight: 400;
 
@@ -14,13 +14,20 @@ $mobSizeTitle: 30; // Размер шрифта заголовка
 
 // Основные цвета
 $mainColor: #7F615A; // Цвет шрифта по умолчанию
-$brown: #47342a; // Цвет коричневый
-$green-gray: #637573; // Цвет зелено-серый
+$brown: #58443f; // Цвет коричневый
+$white: #d6d2cf; // Цвет белый
+$orange: #d6856fd3; // Цвет оранжевый
+$green: #5c755a8f;
+$light-green: rgba(107, 192, 107, 0.767); // Цвет светло-зеленый
+$light-blue: rgba(72, 209, 205, 0.767); // Цвет голубой
+
 
 // Фоновые цвета
 $bgBody: #FFFBF9; // Главный цвет фона
 $bgBody2: #d6d2cf; // Главный цвет фона
-$bgStart: url(./img/background.webp); // Бэграунд блока
+// $bgStart: url(./img/background.webp); // Бэграунд блока
+$bgStart: radial-gradient(circle, rgba(186, 170, 160, 0.315) 35%, rgba(44, 44, 44, 0.726) 100%),
+url(./img/background.webp) no-repeat center / cover;
 
 // Дополнительные цвета
 $dark-gray: #363636; // Цвет темно-серый
