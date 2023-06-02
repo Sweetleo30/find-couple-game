@@ -1,31 +1,61 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="img/favicon.png" type="image/png">
+  <!-- <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="img/favicon.png" type="image/png"> -->
 
   <title>Webpack</title>
 </head>
+
 <body>
-  <header>
-    <h1>Webpack</h1>
-  </header>
+  <div class="wrapper">
+    <main>
+      <div class="start-page__wrapper start-page">
+        <h1 class="title">Игра</h1>
+        <div class="user-name input-group">
+          <input type="text" id="name" class="login-input" required autocomplete="off">
+          <label for="name" class="login-label">Имя</label>
+        </div>
+        <div class="start">
+          <button class="start__btn btn">Старт</button>
+        </div>
+        <div class="setting">
+          <div class="level">
+            <input name="level" id="one" type="radio" checked value="6" />
+            <label for="one" class="level__label">Легко</label>
+            <input name="level" id="two" type="radio" value="8" />
+            <label for="two" class="level__label">Нормально</label>
+            <input name="level" id="three" type="radio" value="10" />
+            <label for="three" class="level__label">Сложно</label>
+            <div class="level__indicator"></div>
+          </div>
+        </div>
+      </div>
 
-  <main>
-    <div class="img"></div>
-    <ul>
-      <li>1</li>
-      <li>2</li>
-      <li>3</li>
-    </ul>
-  </main>
-
-  <footer>
-    <div class="image"></div>
-  </footer>
+      <div class="game__container">
+        <div class="game__content">
+        </div>
+        <div class="game__block">
+          <div class="result">
+            <div>Количество попыток:</div>
+            <div class="result__attempts"></div>
+          </div>
+          <div class="watch">
+            <h2 id="watch">00:00:00:00</h2>
+          </div>
+          <div class="buttons">
+            <button class="btn__item"><img id="pause" class="scale" src="./img/Pause.png"></button>
+            <button class="btn__item"><img id="reset" class="scale" src="./img/Reload.png"></button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
 </body>
+
 </html>
