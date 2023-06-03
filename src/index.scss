@@ -176,12 +176,8 @@ body {
 
 // Подключение стилей отдельных блоков
 @import 'style/start';
-// @import "header";
-// @import "hero";
-// @import "about";
-// @import "portfolio";
-// @import "page-construction";
-// @import "footer";
+@import 'style/game';
+
 
 // Подключение стилей отдельных страниц
 // @import "home";
