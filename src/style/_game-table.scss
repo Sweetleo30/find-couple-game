@@ -1,0 +1,33 @@
+//блок таблицы
+.game__table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    background-color: #d6856f29;
+    border-width: 3px 4px 3px 5px;
+    border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;
+    transform: rotate(2deg);
+    border: solid #7F615A;
+    border-color: #7F615A;
+}
+
+.table {
+    color: #7F615A;
+    transform: rotate(-2deg);
+    text-align: center;
+    padding: 30px 10px;
+}
+
+th {
+    padding: 10px;
+    background-color: #d6856f2c;
+    border-radius: 8px;
+    font-size: 26px;
+    font-weight: 400;
+}
+
+td {
+    font-size: 20px;
+    padding: 10px;
+}

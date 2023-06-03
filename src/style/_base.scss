@@ -22,32 +22,3 @@ body {
 .table-col {
   flex-direction: column;
 }
-
-
-.result {
-  display: flex;
-}
-
-.btn__item {
-  background-color: #FFFBF9;
-  width: 50px;
-  height: 50px;
-  transition: 0.5s;
-}
-
-.btn__item img {
-  width: 40px;
-  height: 40px;
-}
-
-.scale {
-  transition: 0.5s;
-}
-
-.scale:hover {
-  transform: scale(1.2);
-}
-
-.result__attempts {
-  padding-left: 5px;
-}

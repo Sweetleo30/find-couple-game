@@ -18,7 +18,7 @@
 
 .card {
     position: relative;
-    margin: 10px;
+    margin: rem(10);
     cursor: pointer;
     width: 14vh;
     height: 19vh;
@@ -32,7 +32,7 @@
     backface-visibility: hidden;
     position: absolute;
     transition: transform .6s linear;
-    border-radius: 15px;
+    border-radius: rem(15);
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -88,4 +88,39 @@
     opacity: 0;
     transition: 1.5s;
     cursor: auto;
+}
+
+
+.result {
+    display: flex;
+    @include adaptiveValue(padding, 10, 6);
+}
+
+.result__attempts {
+    padding-left: 5px;
+}
+
+.buttons {
+    @include adaptiveValue(margin-top, 10, 6);
+}
+
+.btn__item {
+    @include adaptiveValue(padding, 10, 6);
+    @include adaptiveValue(width, 50, 40);
+    @include adaptiveValue(height, 50, 40);
+    background-color: $bgBody;
+    transition: 0.5s;
+}
+
+.btn__item img {
+    @include adaptiveValue(width, 40, 30);
+    @include adaptiveValue(height, 40, 30);
+}
+
+.scale {
+    transition: 0.5s;
+}
+
+.scale:hover {
+    transform: scale(1.2);
 }

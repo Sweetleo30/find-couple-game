@@ -1,15 +1,22 @@
-.start-page__wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .start-page {
     z-index: -2;
     min-height: 100vh;
     background: $bgStart;
+
+    &__container {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
+
 
 .form_wrapper {
     display: flex;

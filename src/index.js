@@ -1,6 +1,6 @@
 import './index.html';
 import './index.scss';
-import code from './img/code.png'
+// import code from './img/code.png'
 import { mult, sum } from './modules/calc';
 
 // const imgWrap = document.querySelector('.img');
