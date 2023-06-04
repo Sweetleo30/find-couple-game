@@ -3,6 +3,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
 }
 
 .game__content {
@@ -10,6 +11,8 @@
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
+    @include adaptiveValue(margin-top, 20, 10);
+    @include adaptiveValue(margin-bottom, 30, 15);
 }
 
 .game__block {
@@ -20,8 +23,6 @@
     position: relative;
     margin: rem(10);
     cursor: pointer;
-    width: 14vh;
-    height: 19vh;
 }
 
 .card__front,
@@ -57,7 +58,6 @@
 
 .card__back {
     transform: perspective(600px) rotateY(180deg);
-    background-color: #F1F1F1;
 }
 
 .card__back-img {
@@ -123,4 +123,95 @@
 
 .scale:hover {
     transform: scale(1.2);
+}
+
+.small,
+.medium,
+.large {
+    @include adaptiveValue(margin, 10, 6);
+}
+
+.small {
+    width: calc($index *5);
+    height: calc($index *6.7);
+
+
+    @media (max-width: $tablet) {
+        width: calc($index *6);
+        height: calc($index *8);
+    }
+
+    @media (max-width: $mobile) {
+        width: calc($index *5.8);
+        height: calc($index *7.8);
+    }
+}
+
+.medium {
+    width: calc($index *3.9);
+    height: calc($index *5.9);
+
+    @media (max-width: $laptop) {
+        width: calc($index *4);
+        height: calc($index *5);
+    }
+
+    @media (max-width: $tablet) {
+        width: calc($index *6.6);
+        height: calc($index *8.6);
+    }
+
+    @media (max-width: $mobile) {
+        width: calc($index *6);
+        height: calc($index *8);
+    }
+}
+
+.large {
+    @include adaptiveValue(width, 110, 55);
+    @include adaptiveValue(height, 156, 89);
+}
+
+
+// .medium {
+//     width: 14vh;
+//     height: 19vh;
+//     margin: 10px;
+// }
+
+// .large {
+//     width: 14vh;
+//     height: 19vh;
+//     margin: 10px;
+// }
+
+.sm-container {
+    width: calc($index *25);
+
+    @media (max-width: $tablet) {
+        width: calc($index *28);
+    }
+}
+
+// ++++++++++++++++++++++++++++
+
+.md-container {
+    width: calc($index *23);
+
+    @media (max-width: $laptop) {
+        width: calc($index *23);
+    }
+
+    @media (max-width: $tablet) {
+        width: calc($index *31.3);
+    }
+
+    @media (max-width: $mobile) {
+        width: calc($index *34);
+    }
+}
+
+.lg-container {
+    // width: 90vh;
+    @include adaptiveValue(width, 680, 320);
 }
