@@ -12,7 +12,7 @@
     flex-wrap: wrap;
     align-items: center;
     @include adaptiveValue(margin-top, 20, 10);
-    @include adaptiveValue(margin-bottom, 30, 15);
+    @include adaptiveValue(margin-bottom, 20, 10);
 }
 
 .game__block {
@@ -35,6 +35,14 @@
     transition: transform .6s linear;
     border-radius: rem(15);
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.card__front {
+    transition: transform .4s linear;
+}
+
+.card__back {
+    transition: transform .6s linear;
 }
 
 .card__front-img img {
@@ -75,7 +83,6 @@
 }
 
 // Переворот карточек
-
 .flipped-front {
     transform: perspective(600px) rotateY(-180deg);
 }
@@ -86,10 +93,9 @@
 
 .hidden {
     opacity: 0;
-    transition: 1.5s;
+    transition: 1.2s;
     cursor: auto;
 }
-
 
 .result {
     display: flex;
@@ -168,32 +174,32 @@
 }
 
 .large {
-    @include adaptiveValue(width, 110, 55);
-    @include adaptiveValue(height, 156, 89);
+    width: calc($index *3.9);
+    height: calc($index *5.5);
+
+    @media (max-width: $laptop) {
+        width: calc($index *3.7);
+        height: calc($index *5.3);
+    }
+
+    @media (max-width: $tablet) {
+        width: calc($index *6.6);
+        height: calc($index *8.6);
+    }
+
+    @media (max-width: $mobile) {
+        width: calc($index *6.5);
+        height: calc($index *8.5);
+    }
 }
-
-
-// .medium {
-//     width: 14vh;
-//     height: 19vh;
-//     margin: 10px;
-// }
-
-// .large {
-//     width: 14vh;
-//     height: 19vh;
-//     margin: 10px;
-// }
 
 .sm-container {
     width: calc($index *25);
 
     @media (max-width: $tablet) {
-        width: calc($index *28);
+        width: calc($index *29);
     }
 }
-
-// ++++++++++++++++++++++++++++
 
 .md-container {
     width: calc($index *23);
@@ -212,6 +218,9 @@
 }
 
 .lg-container {
-    // width: 90vh;
-    @include adaptiveValue(width, 680, 320);
+    width: calc($index *24);
+
+    @media (max-width: $tablet) {
+        width: calc($index *34);
+    }
 }
