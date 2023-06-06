@@ -156,27 +156,6 @@
 	}
 }
 
-//Анимация кнопок нужно удалить
-// @mixin animationButtonBorder($bg, $color) {
-// 	display: inline-block;
-// 	background: transparent;
-// 	border: 1.8px solid $bg;
-// 	color: $bg;
-
-// 	&:hover {
-// 		background: $bg;
-// 		border: 1.8px solid darken($color, 5%);
-// 		color: darken($color, 5%);
-// 		transition: all 0.3s ease;
-// 	}
-
-// 	&:active {
-// 		border: 1.8px solid darken($bg, 22%);
-// 		color: darken($bg, 22%);
-// 		background: transparent;
-// 	}
-// }
-
 //Анимация ссылки
 @mixin animationLink($color, $colorHover) {
 	color: $color;

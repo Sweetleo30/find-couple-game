@@ -1,33 +1,38 @@
 //блок таблицы
-.game__table {
+.table-wrapper {
+    width: 100vh;
+    flex-direction: column;
+    padding: calc($index *0.4);
+}
+
+.table-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 600px;
-    background-color: #d6856f29;
-    border-width: 3px 4px 3px 5px;
+    background-color: $silver-gray;
+    border-width: rem(3) rem(4) rem(3) rem(5);
     border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;
     transform: rotate(2deg);
-    border: solid #7F615A;
-    border-color: #7F615A;
+    border: solid $mainColor;
+    border-color: $mainColor;
 }
 
 .table {
-    color: #7F615A;
     transform: rotate(-2deg);
     text-align: center;
-    padding: 30px 10px;
+    padding: calc($index *1.2);
+    width: calc($index *26);
 }
 
 th {
-    padding: 10px;
-    background-color: #d6856f2c;
-    border-radius: 8px;
-    font-size: 26px;
+    padding: calc($index *0.4);
+    background-color: #d6856f1a;
+    border-radius: rem(8);
+    font-size: calc($index *1.1);
     font-weight: 400;
 }
 
 td {
-    font-size: 20px;
-    padding: 10px;
+    font-size: calc($index *0.8);
+    padding: calc($index *0.4);
 }
