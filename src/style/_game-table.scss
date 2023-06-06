@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $silver-gray;
+    background-color: #d6856f1e;
     border-width: rem(3) rem(4) rem(3) rem(5);
     border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;
     transform: rotate(2deg);
@@ -26,7 +26,7 @@
 
 th {
     padding: calc($index *0.4);
-    background-color: #d6856f1a;
+    background-color: #d6856f2c;
     border-radius: rem(8);
     font-size: calc($index *1.1);
     font-weight: 400;
