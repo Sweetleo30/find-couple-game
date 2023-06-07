@@ -9,6 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @include adaptiveValue(margin-top, 40, 20);
     background-color: $bgTbale;
     border-width: rem(3) rem(4) rem(3) rem(5);
     border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;

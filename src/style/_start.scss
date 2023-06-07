@@ -25,36 +25,6 @@
     align-items: center;
 }
 
-.btn {
-    padding: rem(10) rem(25) rem(8);
-    border: rem(1) solid $white;
-    border-radius: rem(50);
-    min-width: rem(80);
-    @include adaptiveValue(font-size, 22, 16);
-    text-transform: uppercase;
-    color: $mainColor;
-    text-decoration: none;
-    background-color: $bgBody;
-    box-shadow: 0 rem(4) rem(6) $green, 0 rem(1) rem(3) #00000008;
-    cursor: pointer;
-    user-select: none;
-    appearance: none;
-    touch-action: manipulation;
-    vertical-align: top;
-    transition: box-shadow 0.2s;
-}
-
-.btn:hover {
-    transition: all 0.2s;
-    box-shadow: 0 rem(7) rem(14) $green, 0 rem(3) rem(6) #00000014;
-}
-
-.btn:active {
-    background-color: $green;
-    border: rem(1) solid $green;
-    color: $bgBody;
-}
-
 .input-group {
     position: relative;
     @include adaptiveValue(margin-bottom, 34, 24);

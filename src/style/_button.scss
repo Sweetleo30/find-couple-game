@@ -1,0 +1,46 @@
+.btn {
+    padding: rem(10) rem(25) rem(8);
+    border: rem(1) solid $white;
+    border-radius: rem(50);
+    min-width: rem(80);
+    @include adaptiveValue(font-size, 22, 16);
+    text-transform: uppercase;
+    color: $mainColor;
+    text-decoration: none;
+    background-color: $bgBody;
+    box-shadow: 0 rem(4) rem(6) $green, 0 rem(1) rem(3) #00000008;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    transition: box-shadow 0.2s;
+
+    &:hover {
+        transition: all 0.2s;
+        box-shadow: 0 rem(7) rem(14) $green, 0 rem(3) rem(6) #00000014;
+    }
+
+    &:active {
+        background-color: $orange;
+        border: rem(1) solid $orange;
+        color: $bgBody;
+    }
+}
+
+.buttons {
+    @include adaptiveValue(margin-top, 10, 6);
+}
+
+.btn__item {
+    @include adaptiveValue(padding, 10, 6);
+    @include adaptiveValue(width, 50, 40);
+    @include adaptiveValue(height, 50, 40);
+    background-color: $bgBody;
+    transition: 0.5s;
+}
+
+.btn__item img {
+    @include adaptiveValue(width, 40, 30);
+    @include adaptiveValue(height, 40, 30);
+}

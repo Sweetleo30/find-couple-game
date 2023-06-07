@@ -106,23 +106,6 @@
     padding-left: 5px;
 }
 
-.buttons {
-    @include adaptiveValue(margin-top, 10, 6);
-}
-
-.btn__item {
-    @include adaptiveValue(padding, 10, 6);
-    @include adaptiveValue(width, 50, 40);
-    @include adaptiveValue(height, 50, 40);
-    background-color: $bgBody;
-    transition: 0.5s;
-}
-
-.btn__item img {
-    @include adaptiveValue(width, 40, 30);
-    @include adaptiveValue(height, 40, 30);
-}
-
 .scale {
     transition: 0.5s;
 }
