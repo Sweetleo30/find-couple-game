@@ -1,6 +1,7 @@
 // Перемешивание карточек
-// функцию `shuffleCards` принимает массив в качестве аргумента и 
-// использует алгоритм Fisher-Yates для случайного перемешивания элементов массива.
+
+/*функцию `shuffleCards` принимает массив в качестве аргумента и 
+использует алгоритм Fisher-Yates для случайного перемешивания элементов массива.*/
 
 export const shuffleCards = (array) => {
     // определяется длина массива и переменная `randomIndex
@@ -35,3 +36,98 @@ export const shuffleCards = (array) => {
     //возврат перемешанного массива 
     return array;
 }
+
+// Добавление карточек
+
+/*Функция `addCardsToContent` создает на странице набор карточек игры, и определяет уровень игры `gameLevel` 
+в зависимости от выбранного размера карточек `arrSize`.
+Принимает на вход массив `arr`, размер карточек `arrSize`, уровень игры `gameLevel`, 
+обложку `cover` и изображения животных `animalsImg`.*/
+
+export const addCardsToContent = (arr, arrSize, gameLevel, cover, animalsImg) => {
+    // Создается новый фрагмент документа `fragment` для добавления туда карточек
+    const fragment = new DocumentFragment();
+    // Получение доступа к контейнеру `container` для добавления карточек.
+    const container = document.querySelector(".game__content");
+    // Массив `card` будет хранить все сгенерированные карточки.
+    const card = [];
+
+    // Цикл `for ... of` генерирует карточки на основе переданных данных: 
+    for (let i of arr) {
+        const item = document.createElement("div");
+        const front = document.createElement("div");
+        const frontImg = document.createElement("div");
+        const imgCover = document.createElement("img");
+        const back = document.createElement("div");
+        const backImg = document.createElement("div");
+        const imgAnimal = document.createElement("img");
+
+        // Создается новый элемент `div` с классами `game__item` и `card`
+        item.classList.add("game__item", "card");
+        // К элементу добавляется атрибут `data-type` со значением `i`
+        item.setAttribute("data-type", i);
+        // Создается элемент `front` для лицевой стороны карточки с классом `card__front`
+        front.classList.add("card__front");
+        // Создается элемент `frontImg` для размещения изображения обложки с классом `card__front-img`
+        frontImg.classList.add("card__front-img");
+        //Создается элемент `imgCover` для помещения самой обложки компонента
+        imgCover.src = cover;
+        imgCover.alt = "img-cover";
+        //Создается элемент `back` для задней стороны карточки c классом `card__back`
+        back.classList.add("card__back");
+        //Создается элемент `backImg` для размещения изображения животного c классом `card__back-img`
+        backImg.classList.add("card__back-img");
+        //Создается элемент `imgAnimal` для помещения изображения животного из массива `animalsImg`
+        imgAnimal.src = animalsImg[i];
+        imgAnimal.alt = "animal";
+        //Сгенерированные элементы соединяются и добавляются в документ
+        frontImg.appendChild(imgCover);
+        front.appendChild(frontImg);
+        backImg.appendChild(imgAnimal);
+        back.appendChild(backImg);
+        item.appendChild(front);
+        item.appendChild(back);
+        fragment.appendChild(item);
+
+        //Ссылки на созданные элементы сохраняются в массиве `card`
+        card.push(item);
+    }
+
+    //Очищает содержимое контейнера
+    container.innerHTML = "";
+    //Контейнер заполняется карточками, добавленными в `fragment`
+    container.appendChild(fragment);
+
+    // Карточкам добовляются классы в зависимости от выбранного размера
+    switch (arrSize) {
+        case "6":
+            // добавляется класс 'small'
+            card.forEach((el) => el.classList.add("small"));
+            // контейнеру добавляется класс 'sm-container'
+            container.classList.add("sm-container");
+            // значение переменной `gameLevel` становится "Легкий"
+            gameLevel = "Легкий";
+            break;
+
+        case "8":
+            // добавляется класс 'medium'
+            card.forEach((el) => el.classList.add("medium"));
+            // контейнеру добавляется класс 'md-container'
+            container.classList.add("md-container");
+            // значение переменной `gameLevel` становится "Нормальный"
+            gameLevel = "Нормальный";
+            break;
+
+        case "10":
+            // добавляется класс 'large'
+            card.forEach((el) => el.classList.add("large"));
+            // контейнеру добавляется класс 'lg-container'
+            container.classList.add("lg-container");
+            // значение переменной `gameLevel` становится "Сложный"
+            gameLevel = "Сложный";
+            break;
+    }
+
+    // возвращает значение переменной `gameLevel` с учетом выбранного размера карточек
+    return gameLevel;
+};
