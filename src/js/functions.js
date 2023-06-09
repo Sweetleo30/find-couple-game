@@ -131,3 +131,18 @@ export const addCardsToContent = (arr, arrSize, gameLevel, cover, animalsImg) =>
     // возвращает значение переменной `gameLevel` с учетом выбранного размера карточек
     return gameLevel;
 };
+
+// Переворот карточек при клике
+
+/*Функция `startCardFlip` запускает прослушивание кликов по всем карточкам на странице 
+и направляет взаимодействия пользователя соответствующим обработчикам.*/
+export const startCardFlip = (result, cardReverse) => {
+    // Выбирает все элементы на странице с классом `card`
+    const card = document.querySelectorAll(".card");
+    // Очищает содержимое элемента, на который ссылается переменная `result`
+    result.innerHTML = " ";
+    // Для каждой карточки из коллекции, добавляет прослушиватель событий, 
+    // который следит за кликами на каждой карточке.
+    // При клике на карточке срабатывает функция `cardReverse`, которая отвечает за переворот карточки.
+    card.forEach(el => el.addEventListener('click', cardReverse));
+}
