@@ -21,14 +21,14 @@ const watch = document.querySelector('#watch');
 функцию `shuffleCards` принимает массив в качестве аргумента и 
 использует алгоритм Fisher-Yates для случайного перемешивания элементов массива.*/
 export const shuffleCards = (array) => {
-    // определяется длина массива и переменная `randomIndex
+    // определяется длина массива и переменная `randomIndex`
     let currentIndex = array.length,
         randomIndex;
 
     //создается кэш случайных чисел 
     const randomCache = new Array(currentIndex);
-    //функция `random` генерирует случайное число с помощью метода Math.floor() 
-    //и Math.random() для каждой итерации цикла while. 
+    //функция `random` генерирует случайное число с помощью метода `Math.floor()` 
+    //и `Math.random()` для каждой итерации цикла `while`. 
     const random = () => Math.floor(Math.random() * currentIndex);
 
     //Цикл while использует переменную `currentIndex`
@@ -116,27 +116,27 @@ export const addCardsToContent = (arr, arrSize, gameLevel, cover, animalsImg) =>
     // Карточкам добовляются классы в зависимости от выбранного размера
     switch (arrSize) {
         case "6":
-            // добавляется класс 'small'
+            // добавляется класс `small`
             card.forEach((el) => el.classList.add("small"));
-            // контейнеру добавляется класс 'sm-container'
+            // контейнеру добавляется класс `sm-container`
             container.classList.add("sm-container");
             // значение переменной `gameLevel` становится "Легкий"
             gameLevel = "Легкий";
             break;
 
         case "8":
-            // добавляется класс 'medium'
+            // добавляется класс `medium`
             card.forEach((el) => el.classList.add("medium"));
-            // контейнеру добавляется класс 'md-container'
+            // контейнеру добавляется класс `md-container`
             container.classList.add("md-container");
             // значение переменной `gameLevel` становится "Нормальный"
             gameLevel = "Нормальный";
             break;
 
         case "10":
-            // добавляется класс 'large'
+            // добавляется класс `large`
             card.forEach((el) => el.classList.add("large"));
-            // контейнеру добавляется класс 'lg-container'
+            // контейнеру добавляется класс `lg-container`
             container.classList.add("lg-container");
             // значение переменной `gameLevel` становится "Сложный"
             gameLevel = "Сложный";
@@ -160,7 +160,6 @@ export const startCardFlip = () => {
     // Для каждой карточки из коллекции, добавляет прослушиватель событий `click`, 
     // который следит за кликами на каждой карточке.
     // При клике на карточке срабатывает функция `cardReverse`, которая отвечает за переворот карточки.
-    // card.forEach(el => el.addEventListener('click', cardReverse.bind(el)));
     card.forEach(el => el.addEventListener('click', cardReverse));
 }
 
@@ -184,13 +183,13 @@ function cardReverse() {
         }
     }
 
-    // Если у элемента, на который был клик, есть класс "hidden", это означает, что карточка уже перевернута. 
+    // Если у элемента, на который был клик, есть класс `hidden`, это означает, что карточка уже перевернута. 
     // В этом случае функция возвращает `undefined` и карточка не переворачивается.
     if (this.classList.contains("hidden")) {
         return;
     }
 
-    // Элементы-дети элемента "this" (то есть текущей карточки) получают соответствующие классы, 
+    // Элементы-дети элемента `this` (то есть текущей карточки) получают соответствующие классы, 
     // чтобы перевернуть фронтальную и заднюю стороны карточки.
     this.firstElementChild.classList.add("flipped-front");
     this.lastElementChild.classList.add("flipped-back");
@@ -202,8 +201,33 @@ function cardReverse() {
     if (arrTwo.length == 2) {
         // То функция обновляет счетчик попыток
         result.innerHTML = attempts += 1;
-        // Вызывает функцию `checkResult`, чтобы проверить, совпали ли две открытые карточки.
-        checkResult(arrTwo, k);
+        // Вызывает функцию `checkMatch`, чтобы проверить, совпали ли две открытые карточки.
+        checkMatch(arrTwo, k);
+    }
+}
+
+/* Проверка одинаковые ли карточки
+Функция `checkMatch` выполняет проверку на совпадение двух открытых карточек, которые находятся в массиве `arrTwo`*/
+const checkMatch = (arr) => {
+    // Проверяет, совпали ли две открытые карточки по их data-type свойству
+    if (arr[0].dataset.type === arr[1].dataset.type) {
+        // Если карточки совпали, то им добавляется класс `hidden`, они удаляются из массива `arrTwo`
+        arr.forEach(element => element.classList.add("hidden"));
+        // счетчик найденных пар увеличивается на 1
+        k += 1;
+
+        // Если найдены все пары
+        if (k == arrSize) {
+            pauseWatch();
+            const gameTime = watch.innerHTML;
+            const gameResult = document.querySelector(".result__attempts").innerHTML;
+            // Вызывается функция `showWinTable`, которая отображает таблицу с результатами игры
+            setTimeout(showWinTable, 900, gameTime, gameResult);
+        }
+    } else {
+        // Если карточки не совпали, то им добавляется задержка в 900 миллисекунд и 
+        // удаляются классы для их перевернутых состояний с помощью функции removeClass
+        arr.forEach(element => setTimeout(removeClass, 900, element));
     }
 }
 

@@ -138,7 +138,7 @@ export const addCardsToContent = (arr, arrSize, gameLevel, cover, animalsImg) =>
 /*Функция `startCardFlip` запускает прослушивание кликов по всем карточкам на странице 
 и направляет взаимодействия пользователя соответствующим обработчикам.*/
 
-export const startCardFlip = (startWatch, arrTwo, attempts, result, checkResult, k) => {
+export const startCardFlip = (startWatch, arrTwo, attempts, result, checkMatch, k) => {
     console.log(4);
     // Переменная card получает список всех элементов с классом `card`
     const card = document.querySelectorAll(".card");
@@ -150,10 +150,10 @@ export const startCardFlip = (startWatch, arrTwo, attempts, result, checkResult,
     // При клике на карточке срабатывает функция `cardReverse`, которая отвечает за переворот карточки.
     // card.forEach(el => el.addEventListener('click', cardReverse.bind(el)));
     console.log(6);
-    card.forEach(el => el.addEventListener('click', function () { cardReverse(startWatch, arrTwo, attempts, result, checkResult, k, this) }));
+    card.forEach(el => el.addEventListener('click', function () { cardReverse(startWatch, arrTwo, attempts, result, checkMatch, k, this) }));
 
 
-    const cardReverse = (startWatch, arrTwo, attempts, result, checkResult, k, card) => {
+    const cardReverse = (startWatch, arrTwo, attempts, result, checkMatch, k, card) => {
         console.log(9);
         startWatch();
         console.log(10);
@@ -176,7 +176,7 @@ export const startCardFlip = (startWatch, arrTwo, attempts, result, checkResult,
         if (arrTwo.length == 2) {
             result.innerHTML = attempts += 1;
             // console.log(`попытки ${result.innerHTML}`);
-            checkResult(arrTwo, k);
+            checkMatch(arrTwo, k);
             // console.log(`attempts ${attempts}`);
         }
 
