@@ -226,9 +226,22 @@ const checkMatch = (arr) => {
         }
     } else {
         // Если карточки не совпали, то им добавляется задержка в 900 миллисекунд и 
-        // удаляются классы для их перевернутых состояний с помощью функции removeClass
-        arr.forEach(element => setTimeout(removeClass, 900, element));
+        // удаляются классы для их перевернутых состояний с помощью функции `cardReset`
+        arr.forEach(element => setTimeout(cardReset, 800, element));
     }
+}
+
+/*Удаление класса у разных карточек
+Функцию `cardReset` удаляет классы, необходимые для перевернутых состояний карточек. 
+Функция принимает аргумент element, который является карточкой, из которой необходимо удалить классы.*/
+const cardReset = (element) => {
+    // Определены две переменные: front и back, 
+    // в которые записываются фронтальный и задний элементы карточки соответственно
+    const front = element.firstElementChild;
+    const back = element.lastElementChild;
+    // Классы `flipped-front` и `flipped-back` удаляются с соответствующих элементов 
+    front.classList.remove("flipped-front");
+    back.classList.remove("flipped-back");
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
