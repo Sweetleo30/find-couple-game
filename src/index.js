@@ -286,4 +286,46 @@ const getWinHistory = () => {
     return winHistory ? JSON.parse(winHistory) : [];
 };
 
+/* Вывод таблицы победителей
+Функция `showWinTable` отображает таблицу победителей и сохраняет текущую игру в список победителей. */
+const showWinTable = (gameTime, gameResult) => {
+    // Создает объект `user` со свойствами
+    const user = {
+        id: 1,
+        name: userName,
+        time: gameTime,
+        attempts: gameResult,
+        level: gameLevel = addCardsToContent(arr, arrSize, gameLevel, cover, animalsImg),
+    };
+
+    // Получения текущего списка победителей из `localStorage` 
+    const arrUsers = getWinHistory();
+
+    // Созданный объект `user` добавляется в этот список массива `arrUsers`
+    arrUsers.push(user);
+    // Если в списке победителей больше 10 записей
+    if (arrUsers.length > 10) {
+        //то удаляется самая старая запись
+        arrUsers.splice(0, 10);
+    }
+
+    // Cохраняется массив объектов `arrUsers` в `localStorage` под ключом `winHistory`
+    localStorage.setItem('winHistory', JSON.stringify(arrUsers));
+
+    const gameContent = document.querySelector('.game__content');
+    const gameBlock = document.querySelector(".game__block");
+    // HTML-код страницы обновляется с помощью функции `renderWinTable()`
+    gameContent.innerHTML = `
+        <div class="start" >
+            <button id="new-button" class="btn">Новая игра</button>
+        </div>
+        ${renderWinTable(arrUsers)}
+    `;
+
+    // Таблица победителей становится видимой
+    gameContent.classList.add('table-wrapper');
+    // Игровая панель скрывается
+    gameBlock.style.display = "none";
+};
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
