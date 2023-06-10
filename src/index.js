@@ -151,11 +151,9 @@ export const addCardsToContent = (arr, arrSize, gameLevel, cover, animalsImg) =>
 Функция `startCardFlip` запускает прослушивание кликов по всем карточкам на странице 
 и направляет взаимодействия пользователя соответствующим обработчикам.*/
 export const startCardFlip = () => {
-    console.log(4);
     // Переменная card получает список всех элементов с классом `card`
     const card = document.querySelectorAll(".card");
     // Очищает содержимое элемента, на который ссылается переменная `result`
-    console.log(5);
     result.innerHTML = " ";
     // Для каждой карточки из коллекции, добавляет прослушиватель событий `click`, 
     // который следит за кликами на каждой карточке.
@@ -243,5 +241,39 @@ const cardReset = (element) => {
     front.classList.remove("flipped-front");
     back.classList.remove("flipped-back");
 }
+
+/* Рендеринг таблицы
+Функция renderWinTable(users) возвращает HTML-код для таблицы победителей, полученной из переданного ей массива объектов users.*/
+const renderWinTable = (users) => {
+    // Метод массивов `map`, проходит по всем элементам массива `users` и для каждого элемента 
+    // создает строку таблицы с помощью шаблонной строки
+    // Метод `join()` объединяет все строки в единую строку HTML-кода
+    return `
+    <div class="table-content">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Имя</th>
+                    <th>Время</th>
+                    <th>Количество попыток</th>
+                    <th>Уровень сложности</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${users.map((item, i) => ` 
+                <tr>
+                    <td scope="row">${i + 1}</td>
+                    <td>${item.name}</td>
+                    <td>${item.time}</td>
+                    <td>${item.attempts}</td>
+                    <td>${item.level}</td>
+                </tr>
+            `).join('')}
+            </tbody>
+        </table>
+    </div>
+    `;
+};
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
