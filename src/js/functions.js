@@ -132,17 +132,58 @@ export const addCardsToContent = (arr, arrSize, gameLevel, cover, animalsImg) =>
     return gameLevel;
 };
 
+
 // Переворот карточек при клике
 
 /*Функция `startCardFlip` запускает прослушивание кликов по всем карточкам на странице 
 и направляет взаимодействия пользователя соответствующим обработчикам.*/
-export const startCardFlip = (result, cardReverse) => {
-    // Выбирает все элементы на странице с классом `card`
+
+export const startCardFlip = (startWatch, arrTwo, attempts, result, checkResult, k) => {
+    console.log(4);
+    // Переменная card получает список всех элементов с классом `card`
     const card = document.querySelectorAll(".card");
     // Очищает содержимое элемента, на который ссылается переменная `result`
+    console.log(5);
     result.innerHTML = " ";
-    // Для каждой карточки из коллекции, добавляет прослушиватель событий, 
+    // Для каждой карточки из коллекции, добавляет прослушиватель событий `click`, 
     // который следит за кликами на каждой карточке.
     // При клике на карточке срабатывает функция `cardReverse`, которая отвечает за переворот карточки.
-    card.forEach(el => el.addEventListener('click', cardReverse));
+    // card.forEach(el => el.addEventListener('click', cardReverse.bind(el)));
+    console.log(6);
+    card.forEach(el => el.addEventListener('click', function () { cardReverse(startWatch, arrTwo, attempts, result, checkResult, k, this) }));
+
+
+    const cardReverse = (startWatch, arrTwo, attempts, result, checkResult, k, card) => {
+        console.log(9);
+        startWatch();
+        console.log(10);
+        if (arrTwo.length == 2) {
+            arrTwo.length = 0;
+        }
+        console.log(card)
+        console.log(this);
+        if (arrTwo.length == 1) {
+            if (card == arrTwo[0]) {
+                return;
+            }
+        }
+        if (card.classList.contains("hidden")) {
+            return;
+        }
+        card.firstElementChild.classList.add("flipped-front");
+        card.lastElementChild.classList.add("flipped-back");
+        arrTwo.push(card);
+        if (arrTwo.length == 2) {
+            result.innerHTML = attempts += 1;
+            // console.log(`попытки ${result.innerHTML}`);
+            checkResult(arrTwo, k);
+            // console.log(`attempts ${attempts}`);
+        }
+
+    }
+
 }
+
+
+
+
