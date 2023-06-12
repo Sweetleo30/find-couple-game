@@ -339,4 +339,22 @@ const cleanGameData = () => {
     k = 0;
 }
 
+// Секундомер
+let milliseconds = 0;
+let timer;
+
+const startWatch = () => {
+    watch.classList.remove('paused');
+    clearInterval(timer);
+    timer = setInterval(() => {
+        milliseconds += 10;
+        const dateTimer = new Date(milliseconds);
+        watch.innerHTML =
+            ('0' + dateTimer.getUTCHours()).slice(-2) + ':' +
+            ('0' + dateTimer.getUTCMinutes()).slice(-2) + ':' +
+            ('0' + dateTimer.getUTCSeconds()).slice(-2) + ':' +
+            ('0' + dateTimer.getUTCMilliseconds()).slice(-3, -1);
+    }, 10);
+};
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
