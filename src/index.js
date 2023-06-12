@@ -357,4 +357,9 @@ const startWatch = () => {
     }, 10);
 };
 
+const pauseWatch = () => {
+    watch.classList.add('paused');
+    clearInterval(timer);
+};
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
