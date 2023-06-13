@@ -362,4 +362,15 @@ const pauseWatch = () => {
     clearInterval(timer);
 };
 
+const resetWatch = () => {
+    cleanGameData();
+    watch.classList.remove('paused');
+    clearInterval(timer);
+    milliseconds = 0;
+    watch.innerHTML = '00:00:00:00';
+    shuffleCards(arr);
+    addCardsToContent(arr, arrSize, gameLevel, cover, animalsImg);
+    startCardFlip(startWatch, arrTwo, attempts, result, checkMatch, k);
+};
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
