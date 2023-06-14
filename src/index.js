@@ -373,4 +373,15 @@ const resetWatch = () => {
     startCardFlip(startWatch, arrTwo, attempts, result, checkMatch, k);
 };
 
+document.addEventListener('click', (e) => {
+    const element = e.target;
+    if (element.id === 'pause') pauseWatch();
+    if (element.id === 'reset') resetWatch();
+    //запуск новой игры
+    if (element.id === 'new-button') {
+        launchGame();
+        document.querySelector(".game__content").classList.remove("table-wrapper");
+    }
+});
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
