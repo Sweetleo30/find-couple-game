@@ -17,6 +17,16 @@ const watch = document.querySelector('#watch');
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+//Основные функции для запуска игры
+const launchGame = () => {
+    cleanGameData();
+    resetWatch();
+    document.querySelector(".game__block").style.display = 'block';
+    shuffleCards(arr);
+    addCardsToContent(arr, arrSize, gameLevel, cover, animalsImg);
+    startCardFlip(startWatch, arrTwo, attempts, result, checkMatch, k);
+}
+
 /* Перемешивание карточек
 функцию `shuffleCards` принимает массив в качестве аргумента и 
 использует алгоритм Fisher-Yates для случайного перемешивания элементов массива.*/
