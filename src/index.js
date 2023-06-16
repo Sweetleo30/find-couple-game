@@ -17,6 +17,22 @@ const watch = document.querySelector('#watch');
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+startButton.onclick = function () {
+    userName = document.querySelector(".login-input").value;
+    if (!userName) {
+        userName = "Гость";
+    }
+    document.querySelector(".game__container").style.display = 'flex';
+    document.querySelector(".start-page").style.display = 'none';
+    arrSize = document.querySelector("input[name='level']:checked").value;
+
+    for (let i = 1; i <= arrSize; i++) {
+        arr.push(i);
+        arr.push(i);
+    }
+    launchGame();
+}
+
 //Основные функции для запуска игры
 const launchGame = () => {
     cleanGameData();
