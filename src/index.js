@@ -14,8 +14,11 @@ const startButton = document.querySelector('.btn');
 const result = document.querySelector(".result__attempts");
 const watch = document.querySelector('#watch');
 
-
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+document.addEventListener("DOMContentLoaded", function (event) {
+    document.querySelector(".game__container").style.display = 'none';
+});
 
 startButton.onclick = function () {
     userName = document.querySelector(".login-input").value;
